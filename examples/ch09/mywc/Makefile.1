@@ -1,0 +1,14 @@
+# Makefile.1 - the simplest Makefile: one rule per file, nothing clever.
+# Run it with: make -f Makefile.1
+
+mywc: main.o count.o
+	gcc -o mywc main.o count.o
+
+main.o: main.c count.h
+	gcc -std=c99 -Wall -Wextra -pedantic -c main.c
+
+count.o: count.c count.h
+	gcc -std=c99 -Wall -Wextra -pedantic -c count.c
+
+clean:
+	rm -f mywc main.o count.o

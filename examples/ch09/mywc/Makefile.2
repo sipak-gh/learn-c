@@ -1,0 +1,20 @@
+# Makefile.2 - variables, a pattern rule and automatic variables.
+# Run it with: make -f Makefile.2
+
+CC     = gcc
+CFLAGS = -std=c99 -Wall -Wextra -pedantic -O2
+OBJS   = main.o count.o
+
+.PHONY: all clean
+
+all: mywc
+
+mywc: $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+
+# Any foo.o is made from foo.c (and every object depends on count.h).
+%.o: %.c count.h
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f mywc $(OBJS)

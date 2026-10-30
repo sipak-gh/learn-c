@@ -1,0 +1,25 @@
+# build output (Makefile projects build into build/<libc>[-san|-release]/)
+build/
+*.o
+*.d
+*.a
+a.out
+core
+core.*
+vgcore.*
+
+# binaries built by hand in chapters 1-8 and in examples
+/project/ch0[1-8]/parleyd
+/project/ch0[1-8]/parley
+/project/ch0[1-8]/parleyd-*
+/project/ch0[1-8]/parley-*
+/examples/**/*-musl
+/examples/**/*-static
+
+# make dist / make install / test leftovers
+parley-*.tar.gz
+stage/
+*.itest.log
+*.log
+*.trace
+trace.txt
